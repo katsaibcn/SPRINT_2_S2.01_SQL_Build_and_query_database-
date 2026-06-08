@@ -6,14 +6,12 @@ les dues taules. Mostra les característiques principals de l'esquema creat i ex
 les diferents taules i variables que existeixen. Assegura't d'incloure un diagrama 
 que il·lustri la relació entre les diferents taules i variables. */
 
-SELECT*
-FROM transaction;
 
--- Creamos la base de datos
+-- Creating the new database
 CREATE DATABASE IF NOT EXISTS transactions;
 USE transactions;
 
--- Creamos la tabla company
+-- Creating the table company
 CREATE TABLE IF NOT EXISTS company (
 	id VARCHAR(15) PRIMARY KEY,
 	company_name VARCHAR(255),
@@ -24,7 +22,7 @@ CREATE TABLE IF NOT EXISTS company (
 );
 
 
--- Creamos la tabla transaction
+-- Creating the table transaction
 CREATE TABLE IF NOT EXISTS transaction (
 	id VARCHAR(255) PRIMARY KEY,
 	credit_card_id VARCHAR(15) REFERENCES credit_card(id),
@@ -77,7 +75,7 @@ ORDER BY country
 ;
 
 # b - Des de quants països es realitzen les compres.
-# es realitzen compres des de 15 paisos diferents (numero de files apartat a)
+# purchases are made from 15 different countries (number of rows returned in results for above, section a)
 
 #c - Identifica la companyia amb la mitjana més gran de vendes.*/
 SELECT co.company_name, co.id, AVG(tran.amount) AS mitjana_vendes
